@@ -11,7 +11,6 @@ from collections import Counter
 from model import EvalNet
 from utils import get_modelist, find_files, embed_img, _L, EN_US
 
-
 TRANSLATE = {
     "C0090": ["大笒", "da4_cen2"],
     "C0091": ["高音横笛", "Treble_heng2_di2"],
@@ -404,9 +403,7 @@ if __name__ == "__main__":
             title=_L("建议录音时长保持在 3s 左右"),
         )
 
-        gr.Markdown(
-            f"# {_L('引用')}"
-            + """
+        gr.Markdown(f"# {_L('引用')}" + """
             ```bibtex
             @article{Zhou-2025,
                 author  = {Monan Zhou and Shenyang Xu and Zhaorui Liu and Zhaowen Wang and Feng Yu and Wei Li and Baoqiang Han},
@@ -420,7 +417,10 @@ if __name__ == "__main__":
                 url     = {https://doi.org/10.5334/tismir.194},
                 doi     = {10.5334/tismir.194}
             }
-            ```"""
-        )
+            ```""")
 
-    demo.launch(css="#gradio-share-link-button-0 { display: none; }", ssr_mode=False)
+    demo.launch(
+        theme=gr.themes.Ocean(),
+        css="#gradio-share-link-button-0 { display: none; }",
+        ssr_mode=False,
+    )
